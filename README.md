@@ -3,4 +3,4 @@
 * npm install
 * npm start
 
-**Todo listo! ** :tada:
+**Todo listo!** :tada:

@@ -1,4 +1,6 @@
 # proyecto-sistemas-inteligentes
 
-npm install
-npm start
+* npm install
+* npm start
+
+:tada:

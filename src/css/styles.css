@@ -1,0 +1,62 @@
+
+
+@font-face {
+    font-family: 'sansation_lightregular';
+    src: url('../assets/fonts/webfontkit/sansation_light-webfont.woff2') format('woff2'),
+         url('../assets/fonts/webfontkit/sansation_light-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+body{
+    background-image: url("../assets/images/foodbg.jpg");
+}
+
+.container {
+    display: flex;
+    font-family: 'sansation_lightregular';
+}
+
+.shopping_list{
+    width: 30%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: whitesmoke;
+    margin: 10% 5% 10% 5%;
+    border-radius: 15px;
+}
+
+.super_mkt_map{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 70%;
+    background-color: whitesmoke;
+    border-radius: 15px;
+    margin: 2% 5% 0% 5%;
+}
+
+.inputbox{
+    margin: 3rem 2rem 3rem 2rem ;
+}
+
+table, th, td{
+    border: 1px solid black;   
+    border-collapse: collapse;
+    text-align: center;
+
+}
+
+td{
+    width: 50px;
+    height: 50px;
+}
+
+.submit_button{
+    color: white;
+    background-color: rgb(255, 102, 0);
+    border: 0px;
+    padding: 5px 15px 5px 15px;
+}

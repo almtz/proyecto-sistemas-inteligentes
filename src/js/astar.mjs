@@ -113,6 +113,3 @@ export function getFullTravel(nodes, start_node ) {
 
     return getFullTravel(newArray, paths.last_item);
 }
-
-let fullTravel = getFullTravel(prueba, [0,0])
-console.table(fullTravel)

@@ -9,11 +9,7 @@ function arrayEquals(a, b) {
     );
 }
 
-let prueba = [
-    [11, 2],
-    [9, 5],
-    [11, 1],
-];
+let prueba = [[9,0], [10, 8], [4,9]]
 
 function searchPath(start_node, end_node) {
     const grid = new Grid({
@@ -22,16 +18,59 @@ function searchPath(start_node, end_node) {
     });
 
     let walls = [
+        [4, 0],
+        [5, 0],
+        [6, 0],
+        [7, 0],
+        [11,0],
+        [2, 2],
+        [2, 3],
+        [2, 5],
+        [2, 7],
+        [2, 9],
+        [3, 2],
+        [4, 0],
+        [4, 2],
+        [4, 4],
+        [4, 6],
+        [4, 8],
+        [5, 0],
         [5, 2],
-        [5, 3],
         [5, 4],
+        [5, 6],
+        [5, 8],
+        [6, 0],
+        [6, 2],
+        [6, 4],
+        [6, 6],
+        [6, 8],
+        [7, 0],
+        [7, 2],
+        [7, 4],
+        [7, 6],
+        [7, 8],
+        [9, 1],
+        [9, 2],
+        [9, 3],
+        [9, 5],
+        [9, 6],
+        [9, 7],
+        [9, 9],
+        [10,9],
+        [11,0],
+        [11,1],
+        [11,2],
+        [11,6],
+        [11,7],
+        [11,8],
+        [11,9],
     ];
 
     walls.forEach((item) => {
         grid.set(item, "value", 1); // Values greater than 0 are obstacles
     });
-
     let astar = new Astar(grid);
+
     return astar.search(start_node, end_node, {
         rightAngle: false,
         optimalResult: true,
@@ -64,6 +103,7 @@ let finalPath = []
 export function getFullTravel(nodes, start_node ) {
     if(nodes.length === 1) {
         finalPath.push(getPaths(nodes, start_node).current_best)
+        finalPath.push(searchPath(nodes[0], [0, 7]))
         return finalPath
     }
 
@@ -74,5 +114,5 @@ export function getFullTravel(nodes, start_node ) {
     return getFullTravel(newArray, paths.last_item);
 }
 
-let fullTravel = getFullTravel(prueba, [0,8])
-fullTravel.forEach(item => console.table( item.forEach(item => console.log(item))))
+let fullTravel = getFullTravel(prueba, [0,0])
+console.table(fullTravel)

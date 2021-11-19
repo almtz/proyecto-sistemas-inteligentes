@@ -10,12 +10,6 @@ function arrayEquals(a, b) {
   );
 }
 
-let prueba = [
-  [9, 0],
-  [10, 8],
-  [4, 9],
-];
-
 function searchPath(start_node, end_node) {
   const grid = new Grid({
     col: 12,

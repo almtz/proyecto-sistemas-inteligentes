@@ -1,6 +1,13 @@
 const Grid = require("fast-astar").Grid;
 const Astar = require("fast-astar").Astar;
-// See if array a is equal to array b
+
+/**
+ * Check if a array a has equals content that array b.
+ *
+ * @param a array that we want to compare
+ * @param b array that we are comparing against
+ * @returns {false|*}
+ */
 function arrayEquals(a, b) {
   return (
     Array.isArray(a) &&
@@ -10,14 +17,27 @@ function arrayEquals(a, b) {
   );
 }
 
+/**
+ * Function to get the closest path using the A* algorithm, the function
+ * builds the map grid with the Grid class and initiate the algorithm
+ *
+ * @param start_node The node where the path should start
+ * @param end_node The node where the path should end
+ * @returns {Array} an array with the nodes that represent the path
+ */
 function searchPath(start_node, end_node) {
   const grid = new Grid({
     col: 12,
     row: 10,
   });
 
+  /**
+   * Array that represent the obstacles on the map
+   *
+   * @type {number[][]}
+   */
   let walls = [
-    [0,2],
+    [0, 2],
     [4, 0],
     [5, 0],
     [6, 0],
@@ -66,6 +86,10 @@ function searchPath(start_node, end_node) {
     [11, 9],
   ];
 
+  /**
+   * Set the obstacles on the map, every node with a value grater than 0, is
+   * considered an obstacle
+   */
   walls.forEach((item) => {
     grid.set(item, "value", 1); // Values greater than 0 are obstacles
   });
@@ -77,6 +101,13 @@ function searchPath(start_node, end_node) {
   });
 }
 
+/**
+ * Finds the closest path between a series of nodes
+ *
+ * @param nodes Array of nodes that has to be search
+ * @param starting_node Node where the path starts
+ * @returns {{last_item: *, current_best: *[]}} Object with the new starting node and the closets path find
+ */
 function getPaths(nodes, starting_node) {
   let current_best = [];
 
@@ -100,6 +131,15 @@ function getPaths(nodes, starting_node) {
 }
 
 let finalPath = [];
+
+/**
+ * Finds the full path of a travel, where a series of nodes need to be
+ * visited.
+ *
+ * @param nodes Array of the nodes that have to be visited
+ * @param start_node Node where the path should start
+ * @returns {*[]|*} Array with the complete path of the travel
+ */
 const getFullTravel = (nodes, start_node) => {
   if (nodes.length === 1) {
     finalPath.push(getPaths(nodes, start_node).current_best);

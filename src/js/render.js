@@ -1,6 +1,7 @@
 const travel = require("../js/astar");
 
 document.querySelector("#sbt_button").addEventListener("click", () => {
+
   /*let prueba = [
     [9, 0],
     [10, 8],
@@ -34,4 +35,21 @@ document.querySelector("#sbt_button").addEventListener("click", () => {
 
   let path = travel.getFullTravel(goTo, [0, 2]);
   console.log(path);
+
+
+
+  var count = 1;
+  for(let i = 0; i < path.length; i++){
+    for(let j = 0;j < path[i].length; j++){
+      var id = path[i][j][0] + "-" + path[i][j][1];
+      console.log(id);
+      var x = document.getElementById(id);
+      x.style.backgroundColor = "purple";
+      x.style.color = "white";
+      x.innerHTML = x.innerHTML + " " + count;
+      count++;        
+      
+    }
+
+  }
 });
